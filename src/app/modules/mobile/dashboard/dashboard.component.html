@@ -1,0 +1,16 @@
+<!-- dashboard.component.html -->
+<app-mobile-layout>
+    <div class="mobile-dashboard">
+        <div class="dashboard-grid">
+            <a [routerLink]="['articulos']" class="dashboard-card"> <!-- Relativo a /mobile -->
+                <mat-icon>inventory</mat-icon>
+                <span>Articulos</span>
+            </a>
+            <a [routerLink]="['sujetos']"  class="dashboard-card">
+                <div class="card-icon">👥</div>
+                <h3>Clientes</h3>
+                <p>Administración de clientes</p>
+            </a>
+        </div>
+    </div>
+</app-mobile-layout>

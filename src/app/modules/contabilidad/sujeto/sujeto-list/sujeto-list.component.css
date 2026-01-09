@@ -1,0 +1,64 @@
+.full-width {
+  width: 50%;
+}
+
+.full-width-table {
+  width: 100%;
+  min-width: 600px; /* Fuerza scroll horizontal en pantallas pequeñas */
+}
+
+.responsive-cell {
+  padding: 12px;
+  font-size: 1rem;
+}
+.col-nombre {
+  min-width: 120px;
+  max-width: 200px;
+  word-break: break-word;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .full-width {
+  width: 100%;
+}
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .titulo {
+    font-size: 1.2rem;
+  }
+  .col-id
+  {
+    
+  }
+  .responsive-cell {
+    padding: 4px;
+    font-size: 0.75rem; /* Tamaño reducido para móviles */
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .mat-header-cell, .mat-cell {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .col-nombre {
+    min-width: 80px;
+    max-width: 120px;
+    font-size: 0.75rem;
+  }
+
+  
+
+  .mat-cell, .mat-header-cell {
+    padding: 4px;
+  }
+}
+
+

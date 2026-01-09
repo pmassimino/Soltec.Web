@@ -1,0 +1,26 @@
+<div class="layout-container">
+  <!-- Toolbar superior (se oculta al hacer scroll) -->
+  <mat-toolbar 
+    color="white" 
+    class="top-toolbar"
+    [class.hidden]="isToolbarHidden">
+    <span>SAE App</span>   
+  </mat-toolbar>
+
+  <!-- Contenido principal -->
+  <main class="content">
+    <ng-content></ng-content>
+  </main>
+
+  <!-- Barra inferior fija -->
+  <nav class="bottom-nav">
+    <a routerLink="/mobile" class="nav-item">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+    </a>
+    <a (click)="onLogout()" class="nav-item"> <!-- Cambiado de onclick a (click) -->
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span> <!-- Cambiado "Perfil" por "Cerrar sesión" para claridad -->
+    </a>
+  </nav>
+</div>

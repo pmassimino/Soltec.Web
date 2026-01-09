@@ -1,0 +1,86 @@
+.full-width {
+  width: 50%;
+}
+
+.full-width-table {
+  width: 100%;
+  min-width: 600px; /* Fuerza scroll horizontal en pantallas pequeñas */
+}
+
+.responsive-cell {
+  padding: 12px;
+  font-size: 1rem;
+}
+.col-nombre {
+  min-width: 120px;
+  max-width: 200px;
+  word-break: break-word;
+}
+
+.col-precio {
+  min-width: 80px;
+  max-width: 100px;
+  text-align: right;
+}
+
+.col-stock {
+  min-width: 60px;
+  max-width: 80px;
+  text-align: right;
+}
+
+.col-pend {
+  min-width: 80px;
+  max-width: 100px;
+  text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+  .full-width {
+  width: 100%;
+}
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .titulo {
+    font-size: 1.2rem;
+  }
+  .col-id
+  {
+    display: none;
+  }
+  .responsive-cell {
+    padding: 4px;
+    font-size: 0.75rem; /* Tamaño reducido para móviles */
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .mat-header-cell, .mat-cell {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .col-nombre {
+    min-width: 80px;
+    max-width: 120px;
+    font-size: 0.75rem;
+  }
+
+  .col-precio,
+  .col-stock,
+  .col-pend {
+    min-width: 20px;
+    max-width: 40px;
+    font-size: 0.75rem;
+  }
+
+  .mat-cell, .mat-header-cell {
+    padding: 4px;
+  }
+}
+
+

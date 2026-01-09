@@ -1,0 +1,74 @@
+<div class="container" style="padding: 1rem;">
+  <h3 class="titulo">Artículos</h3>
+
+  <!-- Loading state -->
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+  <!-- Error state -->
+  <mat-card *ngIf="error" class="error-card">
+    <mat-card-content>
+      {{ error }}
+      <button mat-raised-button color="primary" (click)="refresh()">Reintentar</button>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Filter input -->
+  <mat-form-field appearance="outline" class="full-width" *ngIf="!loading && !error">
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ej. Herbicida">
+    <button mat-icon-button matSuffix disabled>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <!-- Table container with horizontal scroll on mobile -->
+  <div class="mat-table-container" *ngIf="!loading && !error" style="overflow-x: auto;">
+    <table mat-table [dataSource]="dataSource" matSort class="full-width-table">
+
+      <!-- Código Column -->
+      <ng-container matColumnDef="id" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="col-id responsive-cell">Código</th>
+        <td mat-cell *matCellDef="let articulo" class="col-id responsive-cell">{{ articulo.id }}</td>
+      </ng-container>
+
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="col-nombre responsive-cell">Nombre</th>
+        <td mat-cell *matCellDef="let articulo" class="col-nombre responsive-cell">{{ articulo.nombre }}</td>
+      </ng-container>
+
+      <!-- Precio Column -->
+      <ng-container matColumnDef="precioVentaFinal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="responsive-cell">Precio</th>
+        <td mat-cell *matCellDef="let articulo" class="responsive-cell">
+          {{ getPrecioFormateado(articulo.precioVentaFinal, articulo.idDivisa) }}
+        </td>
+      </ng-container>
+
+      <!-- Stock Column -->
+      <ng-container matColumnDef="stock">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="responsive-cell">Stock</th>
+        <td mat-cell *matCellDef="let articulo" class="responsive-cell">{{ articulo.stock }}</td>
+      </ng-container>
+
+      <!-- Pend. Remitir Column -->
+      <ng-container matColumnDef="pendRemitir">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="responsive-cell">Pend. Remitir</th>
+        <td mat-cell *matCellDef="let articulo" class="responsive-cell">{{ articulo.pendRemitir }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <!-- Paginador -->
+  <div style="margin-top: 1rem;">
+    <mat-paginator [length]="totalItems"
+                   [pageSize]="pageSize"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="[5, 10, 20, 50]"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>

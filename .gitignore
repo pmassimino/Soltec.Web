@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# O excluir todos los archivos config.json en cualquier carpeta
+**/config.json
+
 # Node
 /node_modules
 npm-debug.log
