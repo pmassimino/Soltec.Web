@@ -41,7 +41,7 @@
       <ng-container matColumnDef="precioVentaFinal">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="responsive-cell">Precio</th>
         <td mat-cell *matCellDef="let articulo" class="responsive-cell">
-          {{ getPrecioFormateado(articulo.precioVentaFinal, articulo.idDivisa) }}
+          {{ getPrecioFormateado(articulo.precioVenta, articulo.idDivisa) }}
         </td>
       </ng-container>
 
